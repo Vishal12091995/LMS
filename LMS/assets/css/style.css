@@ -1,0 +1,49 @@
+:root{
+    --offcanvas-width:270px;
+    --top-navbar-height: 56px;
+}
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+.main-login{
+    background-image: url('../images/libraray_background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.nav_bar{
+    position: sticky;
+    height: auto;
+}
+.user-icon{
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+.sidebar-nav{
+    width: var(--offcanvas-width)!important;
+   margin-top: 8vh;
+}
+.right-icon{
+    transition: all 0.2s;
+}
+.sidebar_link[aria-expanded="true"] .right-icon{
+transform: rotate(180deg);
+}
+@media(min-width:992px){
+    .offcanvas-backdrop{
+        display: none !important;
+    }
+    .sidebar-nav{
+        transform: none !important;
+        visibility: visible !important;
+        /* height: var(--top-navbar-height) !important; */
+    }
+    .main{
+        margin-left: var(--offcanvas-width);
+    }
+}
