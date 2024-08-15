@@ -1,22 +1,25 @@
+<?php session_start();
+?>
 <!DOCTYPE php>
 <php lang="en">
 
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboards</title>
     <link
-        href="../assets/css/bootstrap.min.css"
-        rel="stylesheet" />
+      href="../assets/css/bootstrap.min.css"
+      rel="stylesheet" />
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer" />
-</head>
-<body>
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+  </head>
+
+  <body>
     <!-- Top Nav Bar -->
     <?php
     include('../includes/header.php');
@@ -31,6 +34,16 @@
     <div class="main">
       <div class="container-fluid">
         <div class="col-md-12">
+          <?php
+          if (isset($_SESSION['error'])) { ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>Error!</strong> <?php echo $_SESSION['error']; ?>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          <?php
+            unset($_SESSION['error']);
+          }
+          ?>
           <h1 class="fw-bold text-uppercase">Add Book</h1>
         </div>
         <!-- tabs row start  -->
@@ -40,64 +53,54 @@
             <div class="card">
               <div class="card-header">Fill The Details of the Book</div>
               <div class="card-body">
-                <form action="">
+                <form action="../models/book.php" method="post">
                   <div class="mb-3">
-                    <label for="exampleInputbook" class="form-label"
-                      >Books Name</label
-                    >
+                    <label for="exampleInputbook" class="form-label">Books Name</label>
                     <input
                       type="Text"
                       class="form-control"
                       id="exampleInputbook"
-                      aria-describedby="emailHelp"
-                    />
+                      name="title"
+                      aria-describedby="emailHelp" />
                   </div>
                   <div class="mb-3">
-                    <label for="exampleInputpisbnname" class="form-label"
-                      >ISBN Name</label
-                    >
+                    <label for="exampleInputpisbnname" class="form-label">ISBN Name</label>
                     <input
                       type="text"
+                      name="isbn"
                       class="form-control"
-                      id="exampleInputpisbnname"
-                    />
+                      id="exampleInputpisbnname" />
                   </div>
                   <div class="mb-3">
-                    <label for="exampleInputauthorname" class="form-label"
-                      >Author Name</label
-                    >
+                    <label for="exampleInputauthorname" class="form-label">Author Name</label>
                     <input
                       type="text"
+                      name="author"
                       class="form-control"
-                      id="exampleInputauthorname"
-                    />
+                      id="exampleInputauthorname" />
                   </div>
                   <div class="mb-3">
-                    <label for="exampleInputpublisher" class="form-label"
-                      >Publisher Name</label
-                    >
+                    <label for="exampleInputpublisher" class="form-label">Publisher Year</label>
                     <input
-                      type="text"
+                      type="number"
+                      name="publication_year"
                       class="form-control"
-                      id="exampleInputpublisher"
-                    />
+                      id="exampleInputpublisher" />
                   </div>
                   <div class="mb-3">
-                    <label for="options" class="form-label"
-                      >Book Category/Course</label
-                    >
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Select any option</option>
-                        <option value="1">UPSC</option>
-                        <option value="2">SSC</option>
-                        <option value="3">Railways</option>
-                        <option value="3">ITT-JEE</option>
-                        <option value="3">NEET</option>
-                      </select>
+                    <label for="options" class="form-label">Book Category/Course</label>
+                    <select class="form-select" name="category_id" aria-label="Default select example">
+                      <option selected>Select any option</option>
+                      <option value="upsc">UPSC</option>
+                      <option value="ssc">SSC</option>
+                      <option value="railways">Railways</option>
+                      <option value="iit">ITT-JEE</option>
+                      <option value="neet">NEET</option>
+                    </select>
                   </div>
                   <div class="col-md-6">
-                    <button type="submit" class="btn btn-success">Save</button>
-                    <button type="submit" class="btn btn-secondary">Reset</button>
+                    <button type="submit" name="publish" class="btn btn-success">Publish</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
                   </div>
                 </form>
               </div>
@@ -111,6 +114,5 @@
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
   </body>

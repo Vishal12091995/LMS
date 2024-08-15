@@ -36,10 +36,10 @@
                 <div class="collapse" id="collapseBooks">
                     <ul class="navbar-nav ps-3 ">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./books/add_books.php"><i class="fa-solid fa-plus mx-2"></i>Add New</a>
+                            <a class="nav-link active" aria-current="page" href="add_books.php"><i class="fa-solid fa-plus mx-2"></i>Add New</a>
                         </li>
                         <li class="nav-link">
-                            <a class="nav-link active" aria-current="page" href="./books/managebooks.php"><i class="fa-solid fa-plus mx-2"></i>Manage Books</a>
+                            <a class="nav-link active" aria-current="page" href="managebooks.php"><i class="fa-solid fa-plus mx-2"></i>Manage Books</a>
                         </li>
                     </ul>
                 </div>
