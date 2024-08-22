@@ -7,7 +7,7 @@ if (isset($_POST['publish'])) {
     $isbn = trim($_POST['isbn']);
     $author = trim($_POST['author']);
     $pub_year = trim($_POST['publication_year']);
-    $category_id = trim($_POST['category_id']);
+    $category_name = trim($_POST['category_name']);
     $datetime = date("Y-m-d H:i:s");
 
     // Validation
@@ -31,7 +31,7 @@ if (isset($_POST['publish'])) {
     } elseif (!is_numeric($pub_year) || strlen($pub_year) != 4) {
         $errors[] = 'Publication year must be a 4-digit number.';
     }
-    if (empty($category_id)) {
+    if (empty($category_name)) {
         $errors[] = 'Category ID is required.';
     }
 
@@ -43,8 +43,8 @@ if (isset($_POST['publish'])) {
     }
 
     // If validation passes, proceed with the database insertion
-    $sql = "INSERT INTO `books`(`title`, `author`, `publication_year`, `isbn`, `category_id`, `created_at`) 
-            VALUES ('$title', '$author', '$pub_year', '$isbn', '$category_id', '$datetime')";
+    $sql = "INSERT INTO `books`(`title`, `author`, `publication_year`, `isbn`, `category_name`, `created_at`) 
+            VALUES ('$title', '$author', '$pub_year', '$isbn', '$category_name', '$datetime')";
     $result = $conn->query($sql);
 
     if ($result) {

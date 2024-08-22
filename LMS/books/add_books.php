@@ -89,13 +89,14 @@
                   </div>
                   <div class="mb-3">
                     <label for="options" class="form-label">Book Category/Course</label>
-                    <select class="form-select" name="category_id" aria-label="Default select example">
+                    <select class="form-select" name="category_name" aria-label="Default select example">
                       <option selected>Select any option</option>
-                      <option value="upsc">UPSC</option>
-                      <option value="ssc">SSC</option>
-                      <option value="railways">Railways</option>
-                      <option value="iit">ITT-JEE</option>
-                      <option value="neet">NEET</option>
+                      <option value="UPSC">UPSC</option>
+                      <option value="SSC">SSC</option>
+                      <option value="RAILWAYS">Railways</option>
+                      <option value="IIT">ITT-JEE</option>
+                      <option value="NEET">NEET</option>
+                      <option value="STORY">Story</option>
                     </select>
                   </div>
                   <div class="col-md-6">
