@@ -18,6 +18,7 @@ include("config/config.php");
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous"
         referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css//dataTables.bootstrap5.css">
 </head>
 <body>
     <!-- Top Nav Bar -->
@@ -86,10 +87,10 @@ include("config/config.php");
                 <div class="collapse" id="collapseStudents">
                     <ul class="navbar-nav ps-3">
                         <li class="nav-link">
-                            <a class="nav-link active" aria-current="page" href="add-book.php"><i class="fa-solid fa-plus mx-2"></i>Add New</a>
+                            <a class="nav-link active" aria-current="page" href="students/add_student.php"><i class="fa-solid fa-plus mx-2"></i>Add New Student</a>
                         </li>
                         <li class="nav-link">
-                            <a class="nav-link active" aria-current="page" href="add-book.php"><i class="fa-solid fa-plus mx-2"></i>Manage All</a>
+                            <a class="nav-link active" aria-current="page" href="students/managestudent.php"><i class="fa-solid fa-plus mx-2"></i>Manage All</a>
                         </li>
                     </ul>
                 </div>
@@ -363,4 +364,5 @@ include("config/config.php");
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <?php include('includes/footer.php'); ?>
   </body>

@@ -58,10 +58,10 @@
                 <div class="collapse" id="collapseStudents">
                     <ul class="navbar-nav ps-3">
                         <li class="nav-link">
-                            <a class="nav-link active" aria-current="page" href="add-book.php"><i class="fa-solid fa-plus mx-2"></i>Add New</a>
+                            <a class="nav-link active" aria-current="page" href="add_student.php"><i class="fa-solid fa-plus mx-2"></i>Add New Student</a>
                         </li>
                         <li class="nav-link">
-                            <a class="nav-link active" aria-current="page" href="add-book.php"><i class="fa-solid fa-plus mx-2"></i>Manage All</a>
+                            <a class="nav-link active" aria-current="page" href="managestudent.php.php"><i class="fa-solid fa-plus mx-2"></i>Manage All</a>
                         </li>
                     </ul>
                 </div>

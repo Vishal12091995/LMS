@@ -45,28 +45,35 @@ session_start(); // Start the session at the top of the script
         <?php
           unset($_SESSION['success']);
         }
+        if (isset($_SESSION['error'])) { ?>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Hello User</strong> <?php echo $_SESSION['error']; ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        <?php
+          unset($_SESSION['error']);
+        }
         ?>
-        <h1 class="fw-bold text-uppercase">Manage Books</h1>
+        <h1 class="fw-bold text-uppercase">Manage Student</h1>
       </div>
       <!-- Tabs row start -->
       <div class="row">
         <div class="col-md-12 mt-4"></div>
         <div class="col-md-12">
           <div class="card">
-            <div class="card-header">Fill The Details of the Book</div>
+            <div class="card-header">Fill The Details of the Student</div>
             <div class="card-body">
               <div>
                 <table id="example" class="table table-striped">
                   <thead class="table-dark">
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Book Name</th>
-                      <th scope="col">Publisher Name</th>
-                      <th scope="col">Author Name</th>
-                      <th scope="col">ISBN No.</th>
-                      <th scope="col">Category</th>
+                      <th scope="col">Student Name</th>
+                      <th scope="col">Phone Number</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Address</th>
                       <th scope="col">Created At</th>
-                      <th scope="col">Status</th>
+                    
                       <th scope="col">Actions</th>
                     </tr>
                   </thead>
@@ -74,8 +81,8 @@ session_start(); // Start the session at the top of the script
                     <?php
                     include('../config/config.php');
 
-                    // Query to select all books from the database
-                    $sql = "SELECT id, title, author, publication_year, isbn,category_name, DATE(created_at) as created_at, status FROM `books`";
+                    // Query to select all Student from the database
+                    $sql = "SELECT id, name, phone_no, email, address,DATE(created_at) as created_at FROM `students`";
                     $result = mysqli_query($conn, $sql);
 
                     if (mysqli_num_rows($result) > 0) {
@@ -86,39 +93,20 @@ session_start(); // Start the session at the top of the script
                         <tr>
                           <td><?php echo $index;
                               $index += 1 ?></td>
-                          <td><?php echo htmlspecialchars($row['title']); ?></td>
-                          <td><?php echo htmlspecialchars($row['author']); ?></td>
-                          <td><?php echo htmlspecialchars($row['publication_year']); ?></td>
-                          <td><?php echo htmlspecialchars($row['isbn']); ?></td>
-                          <td><?php echo htmlspecialchars($row['category_name']); ?></td>
-
+                          <td><?php echo htmlspecialchars($row['name']); ?></td>
+                          <td><?php echo htmlspecialchars($row['phone_no']); ?></td>
+                          <td><?php echo htmlspecialchars($row['email']); ?></td>
+                          <td><?php echo htmlspecialchars($row['address']); ?></td>
                           <td><?php echo htmlspecialchars($row['created_at']); ?></td>
                           <td>
-                            <?php
-                            if ($row['status'] == 1) {
-                              echo '<span class="badge text-bg-success">Active</span>';
-                            } else {
-                              echo '<span class="badge text-bg-danger">Inactive</span>';
-                            }
-                            ?>
-                          </td>
-                          <td>
-                            <a href="edit_book.php?action=edit&eid=<?php echo $row['id']?>" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="../models/delete.php?action=delete&id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
-                            <?php
-                            echo ($row['status'] == 1)
-                              ? '<a href="../models/update_status.php?action=status&id=' . $row['id'] . '&status=0" class="btn btn-secondary btn-sm">Inactive</a>'
-                              : '<a href="../models/update_status.php?action=status&id=' . $row['id'] . '&status=1" class="btn btn-primary btn-sm">Active</a>';
-                            ?>
-
-
-
+                            <a href="edit_student.php?action=edit_student&id=<?php echo $row['id']?>" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="../models/student/delete_student.php?action=delete_student&id=<?php echo $row['id']?>"class="btn btn-danger btn-sm">Delete</a>
                           </td>
                         </tr>
                     <?php
                       }
                     } else {
-                      echo '<tr><td colspan="8">No books found.</td></tr>';
+                      echo '<tr><td colspan="8">No Student found.</td></tr>';
                     }
                     ?>
                   </tbody>
