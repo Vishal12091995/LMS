@@ -56,6 +56,11 @@
                             <div class="card-body">
                                 <form action="../models/student/edit_student.php" method="POST">
                                     <div class="mb-3">
+                                    <input
+                                            type="hidden"
+                                            class="form-control"
+                                            value="<?php echo $_GET['eid']; ?>"
+                                            name="eid" />
                                         <label for="exampleInputbook" class="form-label">Student Name</label>
                                         <input
                                             type="Text"
@@ -89,7 +94,7 @@
                                             id="exampleInputpublisher" />
                                     </div>
                                     <div class="col-md-6">
-                                        <button type="submit" name="add_student" class="btn btn-success">Edit Student</button>
+                                        <button type="submit" name="edit_student" class="btn btn-success">Edit Student</button>
                                         <button type="reset" class="btn btn-secondary">Reset</button>
                                         <a href="managestudent.php"  class="btn btn-secondary">Back </a>
                                     </div>
