@@ -1,3 +1,6 @@
+<?php
+$base_path = "/LMS/"
+?>
 <div
     class="offcanvas offcanvas-start bg-dark text-white sidebar-nav"
     tabindex="-1"
@@ -36,10 +39,10 @@
                 <div class="collapse" id="collapseBooks">
                     <ul class="navbar-nav ps-3 ">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="add_books.php"><i class="fa-solid fa-plus mx-2"></i>Add New</a>
+                            <a class="nav-link active" aria-current="page" href="<?php echo $base_path; ?>books/add_books.php"><i class="fa-solid fa-plus mx-2"></i>Add New</a>
                         </li>
                         <li class="nav-link">
-                            <a class="nav-link active" aria-current="page" href="managebooks.php"><i class="fa-solid fa-plus mx-2"></i>Manage Books</a>
+                            <a class="nav-link active" aria-current="page" href="<?php echo $base_path; ?>books/managebooks.php"><i class="fa-solid fa-plus mx-2"></i>Manage Books</a>
                         </li>
                     </ul>
                 </div>
@@ -58,10 +61,10 @@
                 <div class="collapse" id="collapseStudents">
                     <ul class="navbar-nav ps-3">
                         <li class="nav-link">
-                            <a class="nav-link active" aria-current="page" href="add_student.php"><i class="fa-solid fa-plus mx-2"></i>Add New Student</a>
+                            <a class="nav-link active" aria-current="page" href="<?php echo $base_path; ?>/students/add_student.php"><i class="fa-solid fa-plus mx-2"></i>Add Student</a>
                         </li>
                         <li class="nav-link">
-                            <a class="nav-link active" aria-current="page" href="managestudent.php"><i class="fa-solid fa-plus mx-2"></i>Manage All</a>
+                            <a class="nav-link active" aria-current="page" href="<?php echo $base_path; ?>/students/managestudent.php"><i class="fa-solid fa-plus mx-2"></i>Manage All</a>
                         </li>
                     </ul>
                 </div>
@@ -94,10 +97,10 @@
                 <div class="collapse" id="collapseBooksLoan">
                     <ul class="navbar-nav ps-3">
                         <li class="nav-link">
-                            <i class="fa-solid fa-plus mx-2"></i>Add New
+                            <a class="nav-link active" aria-current="page" href="<?php echo $base_path; ?>loans/add_loan.php"><i class="fa-solid fa-plus mx-2"></i>Add Loan</a>
                         </li>
                         <li class="nav-link">
-                            <i class="fa-solid fa-bars mx-2"></i>Manage All
+                            <a class="nav-link active" aria-current="page" href="<?php echo $base_path; ?>loans/manage_loan.php"><i class="fa-solid fa-plus mx-2"></i>Manage Loan</a>
                         </li>
                     </ul>
                 </div>
