@@ -57,7 +57,7 @@
                             <div class="card-body">
                                 <form action="../models/loan/edit_loan.php" method="POST">
                                     <div class="mb-3">
-                                        <input type="hidden" class="form-control" name="eid" value="<?php $_GET['eid']?>"><?php $_GET['eid']?>
+                                        <input type="hidden" class="form-control" name="eid" value="<?php echo $_GET['eid']?>">
                                         <label for="exampleInputbook" class="form-label">Select Book</label>
                                         <select class="form-control" name="book_id" id="exampleInputbook">
                                             <option value="">Please Select Book</option>

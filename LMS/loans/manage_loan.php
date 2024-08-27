@@ -1,9 +1,10 @@
 <?php
-include ('../config/config.php');
+include('../config/config.php');
 // session_start(); // Start the session at the top of the script
 
 //function to get loan
-function getloans($conn) {
+function getloans($conn)
+{
   // Prepare the SQL query to retrieve loan records along with book and student details
   $sql = "
       SELECT l.*, b.title as book_title, s.name as student_name 
@@ -18,9 +19,9 @@ function getloans($conn) {
 
   // Check if the query was successful
   if ($result === false) {
-      // If there was an error, log the error message
-      error_log("Database query failed: " . mysqli_error($conn));
-      return false;
+    // If there was an error, log the error message
+    error_log("Database query failed: " . mysqli_error($conn));
+    return false;
   }
 
   // Return the result set
@@ -107,13 +108,13 @@ function getloans($conn) {
                   <tbody>
                     <?php
                     $loans =  getLoans($conn);
-                    if(!isset($loans)){
-                      $_SESSION['error']="Error". $conn-> error;
+                    if (!isset($loans)) {
+                      $_SESSION['error'] = "Error" . $conn->error;
                     }
                     if (mysqli_num_rows($loans) > 0) {
                       $index = 1;
                       // Fetch each row and display it in the table
-                      while ($row = $loans -> fetch_assoc()) {
+                      while ($row = $loans->fetch_assoc()) {
                     ?>
                         <tr>
                           <td><?php echo $index;
@@ -140,10 +141,11 @@ function getloans($conn) {
                               Delete
                             </a>
                             <?php
-                            echo ($row['is_return'] == 1)
-                              ? '<a href="#" class="btn btn-secondary btn-sm">Inactive</a>'
-                              : '<a href="#" class="btn btn-success btn-sm">Active</a>';
+                            echo ($row['is_return'] == 0)
+                              ? '<a href="../models/loan/update_status.php?action=update_loan_status&id=' . $row['id'] . '&status=1" class="btn btn-success btn-sm">Active</a>'
+                              : '';
                             ?>
+
                           </td>
                         </tr>
                     <?php
