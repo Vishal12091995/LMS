@@ -119,10 +119,10 @@ $base_path = "/LMS/"
                 <div class="collapse" id="collapseSubs">
                     <ul class="navbar-nav ps-3">
                         <li class="nav-link">
-                            <i class="fa-solid fa-plus mx-2"></i>Add New
+                            <a class="nav-link active" aria-current="page" href="<?php echo $base_path; ?>subscription/manage_subscription.php"><i class="fa-solid fa-plus mx-2"></i>Add Subscription</a>
                         </li>
                         <li class="nav-link">
-                            <i class="fa-solid fa-bars mx-2"></i>Manage All
+                        <a class="nav-link active" aria-current="page" href="<?php echo $base_path; ?>subscription/purchase_history.php"><i class="fa-solid fa-plus mx-2"></i>Purchase History</a>
                         </li>
                     </ul>
                 </div>
