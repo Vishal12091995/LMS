@@ -29,7 +29,7 @@ $base_path = "/LMS/";
     ?>
     <!-- Nav Bar end -->
     <!-- side bar start -->
-     <?php include('includes/sidebar.php');?>
+    <?php include('includes/sidebar.php'); ?>
     <!-- side bar end  -->
     <!-- main content start  -->
     <div class="main">
@@ -44,8 +44,20 @@ $base_path = "/LMS/";
             <div class="card" style="width: 18rem">
               <div class="card-body text-center">
                 <h5 class="card-title text-muted">Total Books</h5>
-                <h1>125</h1>
-                <a href="#" class="card-link" style="text-decoration: none">View More</a>
+                <?php
+                $books_query = "SELECT COUNT(title) as total_book_number FROM `books`";
+                $result_book = mysqli_query($conn, $books_query);
+
+                if ($result_book && mysqli_num_rows($result_book) > 0) {
+                  $row = mysqli_fetch_assoc($result_book);
+                ?>
+                  <h1><?php echo $row['total_book_number']; ?></h1>
+                <?php
+                } else {
+                  echo "<h1>No books found</h1>";
+                }
+                ?>
+                <a href="/books/managebooks.php" class="card-link" style="text-decoration: none">View More</a>
               </div>
             </div>
           </div>
