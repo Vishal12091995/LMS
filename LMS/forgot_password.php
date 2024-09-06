@@ -49,11 +49,12 @@
                         <input
                           type="email"
                           class="form-control"
+                          name = 'email'
                           id="exampleInputEmail1"
                           aria-describedby="emailHelp"
                         />
                       </div>
-                      <button type="submit" class="btn btn-primary my-4">
+                      <button type="submit" name="reset_password" class="btn btn-primary my-4">
                         Submit
                       </button>
                       

@@ -1,3 +1,15 @@
+<?php
+include ('config/config.php');
+if(isset($_POST['reset_password'])){
+    $check_email_id = trim($_POST['email']);
+    $sql = "SELECT * FROM `user` WHERE email = $check_email_id";
+    $result = mysqli_query($conn, $sql);
+    if(empty(mysqli_num_rows($result))){
+        echo "This User is not available";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +34,7 @@
         <div
             class="container d-flex justify-content-center align-items-center vh-100">
             <div class="row">
-                <div class="col-md-12 login-form text center ms-auto">
+                <div class="col-md-12 login-form  ms-auto">
                     <div class="card mb-3" style="max-width: 980px">
                         <div class="row g-0">
                             <div class="col-md-4">
@@ -37,12 +49,22 @@
                                         class="card-title text-uppercase text-center fw-bold fs-1">
                                         Library
                                     </h1>
-                                    <p>Reset Password </p>
-                                    <form action="index.html">
+                                    <h3>Reset Password </h3>
+                                    <form action="new_password_change.php" method="POST">
+                                    <div class="mb-3">
+                                            <input
+                                                type="hidden"
+                                                class="form-control"
+                                                id="exampleInputEmail2"
+                                                name = "check_email"
+                                                value = "<?php echo $check_email_id?>"
+                                                aria-describedby="emailHelp" />
+                                        </div>
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">New Password</label>
                                             <input
                                                 type="password"
+                                                name = "new_password"
                                                 class="form-control"
                                                 id="exampleInputEmail1"
                                                 aria-describedby="emailHelp" />
@@ -51,6 +73,7 @@
                                             <label for="exampleInputEmail1" class="form-label">Confirm Password</label>
                                             <input
                                                 type="password"
+                                                name= "confirm_new_password"
                                                 class="form-control"
                                                 id="exampleInputEmail2"
                                                 aria-describedby="emailHelp" />
@@ -59,15 +82,16 @@
                                             <label for="exampleInputcode" class="form-label">Enter Password Code</label>
                                             <input
                                                 type="text"
+                                                name = "code"
                                                 class="form-control"
                                                 id="exampleInputcode"
                                                 aria-describedby="emailHelp" />
-                                            <button type="submit" class="btn btn-primary my-2">
+                                            <button type="submit" name = "new_password_change" class="btn btn-primary my-2">
                                                 Submit
                                             </button>
                                     </form>
                                     <div>
-                                        <a href="/index.html" class="card-link my-3 py-3">Login</a>
+                                        <a href="index.php" class="card-link my-3 py-3">Login</a>
                                     </div>
                                 </div>
                             </div>

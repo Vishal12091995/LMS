@@ -129,7 +129,7 @@ $base_path = "/LMS/"
             </li>
             <hr />
             <li class="nav-item">
-                <a class="nav-link" role="button">
+                <a class="nav-link" role="button" href = "../logout.php">
                     <i class="fa-solid fa-book-open mx-1"></i>Logout
                 </a>
             </li>

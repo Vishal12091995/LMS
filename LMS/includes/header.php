@@ -1,3 +1,8 @@
+<?php
+// session_start();
+
+?>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav_bar">
       <div class="container-fluid">
         <!-- sidebar button start -->
@@ -50,14 +55,14 @@
                   class="user-icon"
                   alt="User"
                 />
-                Hi, Admin
+                Hi, <?php echo $_SESSION['user_name'];?>
               </a>
               <ul class="dropdown-menu dropdown-menu-end" style="z-index: 1051">
                 <li><a class="dropdown-item" href="#">My Profile</a></li>
                 <li><a class="dropdown-item" href="#">Password</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="#">Logout</a>
+                  <a class="dropdown-item" href="/LMS/logout.php">Logout</a>
                 </li>
               </ul>
             </li>

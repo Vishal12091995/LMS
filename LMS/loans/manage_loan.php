@@ -1,6 +1,6 @@
 <?php
 include('../config/config.php');
-// session_start(); // Start the session at the top of the script
+session_start(); // Start the session at the top of the script
 
 //function to get loan
 function getloans($conn)
